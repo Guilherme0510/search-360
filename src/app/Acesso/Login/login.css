@@ -1,0 +1,43 @@
+.form-container{
+    height: 100vh;
+    background-image: url(https://wallpapercave.com/wp/wp9764093.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.form-signin{
+    width: 330px;
+    padding: 10px;
+    margin: auto;
+}
+.formulario1{
+ padding-top: 5px;
+}
+.form-signin input[type="email"]{
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"]{
+    margin-bottom: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.login-links a{
+    text-decoration: none;
+    font-size: 10pt;
+    
+}
+.icon{
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 5px!important;
+}
+.formulari {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.2); /* Cor de fundo do formulário */
+    border-radius: 5px; /* Borda arredondada */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Sombra suave */
+  }

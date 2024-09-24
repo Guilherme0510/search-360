@@ -1,0 +1,129 @@
+
+.servicos {
+	margin-top: 100px;
+}
+
+.list-serv li {
+	margin-top: 10px;
+}
+
+.serv {
+	display: flex;
+	justify-content: space-around;
+	margin: 0 !important;
+}
+
+.box-serv {
+	padding: 20px;
+	margin-top: 50px;
+	background-color: #fff;
+	border-radius: 25px;
+	position: relative;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+	transition: all .3s ease-in-out;
+}
+
+
+.box-serv .onda-svg-serv {
+	border-radius: 25px;
+	rotate: 180deg;
+	position: absolute;
+	top: 0;
+	/* Ajuste conforme necessário */
+	left: 0;
+	width: 100%;
+	height: auto;
+	fill: #F0F0F2;
+
+	/* Cor do preenchimento */
+}
+
+.box-serv .onda-svg-serv2 {
+	border-radius: 25px;
+	position: absolute;
+	bottom: 0;
+	/* Ajuste conforme necessário */
+	left: 0;
+	width: 100%;
+	height: auto;
+	fill: #F0F0F2;
+
+	/* Cor do preenchimento */
+}
+
+
+@keyframes wave {
+	0% {
+		transform: translateX(0) scaleY(1);
+	}
+
+	50% {
+		transform: translateX(25%) scaleY(0.9);
+	}
+
+	100% {
+		transform: translateX(50%) scaleY(1);
+	}
+}
+
+
+.box-serv:hover {
+	opacity: .9;
+	scale: 1.05;
+	margin-bottom: -15px;
+	margin-left: -10px;
+}
+
+.btn-serv {
+	color: #fff;
+	transition: all .3s ease-in-out;
+}
+
+.btn-serv:hover {
+	scale: 1.10;
+	margin-top: -10px;
+}
+
+.div-serv {
+	margin: auto;
+	display: flex;
+	justify-content: center;
+}
+
+.box-serv i {
+	color: #fff;
+	margin-top: 10px;
+}
+
+
+.info-serv i {
+	margin: 20px 0;
+	font-size: 50px;
+	color: #374DDC;
+}
+
+.info-serv i:hover {
+	animation: rotate 1s;
+}
+
+@keyframes rotate {
+	0% {
+		rotate: 0deg;
+	}
+
+	100% {
+		rotate: 360deg;
+	}
+}
+
+.info-serv p {
+	margin: 15px 20px;
+}
+
+
+
+@media screen and (max-width: 992px) {
+	.box-serv {
+		margin-top: 35px !important;
+	}
+}

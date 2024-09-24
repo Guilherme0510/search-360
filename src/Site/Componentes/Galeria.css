@@ -1,0 +1,30 @@
+
+section .galeria {
+	margin-top: 100px !important;
+}
+
+.gale {
+	display: flex;
+	justify-content: space-around;
+}
+
+.info-galeria {
+	transition: all .3s ease-in-out;
+	border-radius: 25px;
+}
+
+.info-galeria .img-fluid:hover {
+	scale: 1.05;
+	margin-top: 20px;
+	margin-left: -10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.info-galeria .img-fluid {
+	border-radius: 25px;
+	height: 300px;
+	margin-top: 50px;
+	object-fit: cover;
+}

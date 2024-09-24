@@ -1,0 +1,32 @@
+.dashboard-container {
+  background: linear-gradient(to right, #366894, #b44248);
+  padding: 30px 20px 20px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+.chart-container {
+  width: 30%;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+.chart-container:hover {
+  transform: scale(0.9);
+}
+.info {
+  margin-top: 30px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+.info:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,26 @@
+/* Estilos para a Navbar */
+.nav {
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar-light {
+	background-color: transparent;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: white;
+}
+
+.navbar-dark {
+	background-color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: black;
+}
+
+.navbar-brand img {
+	margin-top: 10px;
+	width: 100px;
+	height: 80px;
+}
