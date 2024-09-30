@@ -65,7 +65,7 @@ function Navbar3() {
     return <nav className="navbar navbar-expand-lg navbar-light navbar-3">
         <div className="container-fluid">
             <a className="navbar-brand" href="/app/home">
-                <img src="../../../img/LOGO-REALIZE.png" width="85" height="80" alt="" />
+                <img src="./../../img/logo_ass.png" width="85" height="80" alt="" />
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">

@@ -31,12 +31,15 @@
   align-items: center;
 }
 .nav-link {
-  color: #333;
+  color: #ffffff;
   font-weight: bold;
   margin-right: 10px;
 }
 .nav-link:hover {
   color: #28a745;
+}
+.nav-item{
+  color: #fff!important;
 }
 .icon-hora,
 .fa-dollar-sign,
@@ -65,7 +68,7 @@
   color: #dc3545;
 }
 .btn-nav-ct {
-  color: #464e80;
+  color: #ffffff;
   font-size: small;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
   border-radius: 15px;

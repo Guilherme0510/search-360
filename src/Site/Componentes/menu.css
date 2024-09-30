@@ -4,23 +4,20 @@
 }
 
 .navbar-light {
-	background-color: transparent;
+	background-color: #193b70;
 }
 
 .navbar-light .navbar-nav .nav-link {
 	color: white;
 }
 
-.navbar-dark {
-	background-color: #fff;
-}
 
 .navbar-dark .navbar-nav .nav-link {
 	color: black;
 }
 
-.navbar-brand img {
+.logo-home img {
 	margin-top: 10px;
-	width: 100px;
-	height: 80px;
+	width: 500px;
+	object-fit: contain;
 }

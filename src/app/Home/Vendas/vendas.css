@@ -183,14 +183,11 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-shadow:  -5px 5px 15px rgba(0, 0, 0, 0.4);
     color: rgb(30,54,194);
-    display: flex;
-    justify-content: end;
-    padding-left: 370px;
+    position: absolute;
+    left: 30%;
+    margin-top: 10px;
 }
 
-.qtdClientesAss{
-    margin-right: 50px;
-}
 .back-to-top{
     position: fixed;
     padding: 20px;

@@ -114,7 +114,7 @@ function ListaCliente(props) {
   }, [auth, setLogado, handleVerificarPagos]);
   return (
     <div>
-      <div className="row divAss">
+      <div className="divAss">
         <div className="divDate">
           <p className="text-center">DATA DE VENCIMENTO</p>
           <input

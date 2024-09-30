@@ -1,7 +1,7 @@
 import React from "react";
 import './testemunho.css'
 
-function Testemunho(){
+function Testemunho() {
   return (
     <section className="servicos" id="servicos">
       <div className="container">
@@ -12,7 +12,7 @@ function Testemunho(){
           <div className="row col-md-12 serv text-center">
             <div className="col-md-4 box-serv col-10">
               <div className="info-serv my-4">
-                <i className="fa-solid fa-globe"></i>
+                <i className="fas fa-sync-alt"></i>
                 <svg
                   className="onda-svg-serv"
                   viewBox="0 0 800 50"
@@ -23,7 +23,7 @@ function Testemunho(){
                 >
                   <defs>
                     <linearGradient id="gradiente-onda" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: '#A240B6', stopOpacity: 1 }} />
+                      <stop offset="0%" style={{ stopColor: '#193b70', stopOpacity: 1 }} />
                       <stop offset="100%" style={{ stopColor: '#374DDC', stopOpacity: 1 }} />
                     </linearGradient>
                   </defs>
@@ -33,12 +33,10 @@ function Testemunho(){
                   />
                 </svg>
                 <div className="head-serv">
-                  <h4>Sites profissionais</h4>
+                  <h4>Atualização pagina google maps</h4>
                 </div>
                 <p>
-                  Crie um site profissional e intuitivo, otimizado para todos os dispositivos. Utilizamos
-                  JavaScript, WordPress, Bootstrap e React.js para garantir funcionalidade e design de
-                  alta qualidade.
+                  O serviço de atualizações no Google envolve otimizações contínuas em SEO, conteúdo e aspectos técnicos de um site para melhorar sua visibilidade nos resultados de busca, aumentar o tráfego e garantir relevância conforme as diretrizes do Google.
                 </p>
               </div>
               <svg
@@ -63,7 +61,7 @@ function Testemunho(){
             </div>
             <div className="col-md-4 box-serv col-10">
               <div className="info-serv my-4">
-                <i className="fa-solid fa-cart-shopping"></i>
+                <i className="fas fa-id-card"></i>
                 <svg
                   className="onda-svg-serv"
                   viewBox="0 0 800 50"
@@ -84,12 +82,10 @@ function Testemunho(){
                   />
                 </svg>
                 <div className="head-serv">
-                  <h4>E-commerce</h4>
+                  <h4>Cartao Digital Interativo</h4>
                 </div>
                 <p>
-                  Criamos seu e-commerce seguro e escalável, com até 15 produtos grátis, controle de
-                  estoque em tempo real, métodos de pagamento variados, e suporte técnico para aumentar
-                  suas vendas online.
+                O Cartão Digital Interativo é uma versão digital do cartão de visita, com links para redes sociais, botões de ação e conteúdos multimídia. Ele facilita o compartilhamento e atualização de informações em tempo real.
                 </p>
                 <svg
                   className="onda-svg-serv2"
@@ -135,11 +131,10 @@ function Testemunho(){
                   />
                 </svg>
                 <div className="head-serv">
-                  <h4>Sistemas</h4>
+                  <h4>Site de Buscas</h4>
                 </div>
                 <p>
-                  Oferecemos sistemas personalizados avançados para automatizar processos, gerenciar CRM,
-                  controlar acessos e fornecer funcionalidades essenciais às necessidades da sua empresa.
+                É uma plataforma online que permite encontrar informações na internet, utilizando palavras-chave. Ele rastreia, indexa e organiza páginas web, exibindo os resultados mais relevantes com base em algoritmos, facilitando o acesso rápido a conteúdos variados.
                 </p>
                 <svg
                   className="onda-svg-serv2"

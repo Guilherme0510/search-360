@@ -1,66 +1,35 @@
-.banner {
-	height: 95vh;
-	background: linear-gradient(180deg, #374DDC, #374DDC, #A240B6);
-	position: relative;
-	overflow: hidden;
+.mapa-home {
+	position: absolute;
+	filter: brightness(.6);
+	height: 70vh;
 }
 
 .itens-banner{
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	margin-top: 50px;
+	justify-content: center;
+	flex-direction: column;
+	gap: 20px;
+	height: 50vh;
 }
 
-.onda-svg {
-	position: absolute;
-	bottom: -1px;
-	left: 0;
-	width: 100%;
-	height: auto;
-	border: none;
+.itens-banner h1{
+	color: #fff;
+	font-weight: 600;
+	z-index: 2;
 }
 
-.text-banner {
-	color: #F0F0F2;
+.itens-banner input{
+	width: 500px;
 }
 
-.text-banner h1 {
-	font-size: 55px;
-	margin-bottom: 15px;
+.input-header{
+	display: flex;
+	z-index: 2;
+	
 }
-
-.btn-banner {
-	margin-top: 50px;
+@media screen and (max-width: 992px){
+	.background-video{
+		height: 40vh;
+	}
 }
-
-.btn-banner1 {
-	background-color: #F0F0F2 !important;
-	margin-right: 50px !important;
-	padding: 15px 0 !important;
-	width: 150px;
-	transition: all .3s ease-in-out !important;
-}
-
-.btn-banner1:hover {
-	margin-top: -15px;
-	margin-left: -10px;
-	scale: 1.1;
-	color: #0D0C0B !important;
-}
-
-.btn-banner2 {
-	background-color: #2939A2 !important;
-	color: #fff !important;
-	padding: 15px 0 !important;
-	transition: all .3s ease-in-out !important;
-	width: 150px;
-}
-
-.btn-banner2:hover {
-	margin-left: -10px;
-	margin-top: -15px;
-	scale: 1.1;
-	background-color: #acaccb;
-}
-

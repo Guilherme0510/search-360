@@ -19,6 +19,7 @@
 .icon-u {
   font-size: 20px;
 }
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -43,8 +44,8 @@
   color: #ffff;
   font-size: x-large;
 }
-.table-primari {
-  background-color: #374ddc;
+.bg-table{
+  background-color: #374ddc!important;
 }
 .divAgenciados,
 .divAssinados {

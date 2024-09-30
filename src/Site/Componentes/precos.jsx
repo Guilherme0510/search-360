@@ -3,7 +3,6 @@ import './precos.css'
 function Precos() {
     return (
         <section id="sobre" className="py-5 mt-1">
-          <div className="linha-branca"></div>
           <div className="container pb-5 sobre col-10">
             <div className="dados-sobre row">
               <div className="img-sobre col-md-5 col-lg-5 col-sm-2 col-12">

@@ -1,6 +1,8 @@
+// Dash.js
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // Importe useLocation
 import { collection, getDocs } from 'firebase/firestore'; // Importe a coleção e método de leitura
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import SearchInput from '../dash/components/SearchInput';
 import SearchResult from '../dash/components/SearchResult';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,10 +11,12 @@ import './components/styles/Dash.css';
 
 const Dash = () => {
   const db = getFirestore();
+  const location = useLocation(); // Use o hook useLocation
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(new URLSearchParams(location.search).get('query') || '');
+  const [locationQuery, setLocationQuery] = useState(new URLSearchParams(location.search).get('location') || '');
   const [selectedRamo, setSelectedRamo] = useState('');
-  const [ramosOptions, setRamosOptions] = useState([]); // Aqui você pode carregar os ramos da base de dados
+  const [ramosOptions, setRamosOptions] = useState([]);
   const [filteredClients, setFilteredClients] = useState([]);
   const [currentClients, setCurrentClients] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,28 +24,25 @@ const Dash = () => {
   const [allClients, setAllClients] = useState([]);
 
   useEffect(() => {
-    // Função para buscar dados dos clientes do Firestore
     const fetchClients = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'clientes'));
         const clientsData = querySnapshot.docs.map(doc => doc.data());
-  
-        // Ordena os clientes por uma propriedade, por exemplo 'criadoEm'
+
         const sortedClients = clientsData.sort((a, b) => {
-          return b.criadoEm - a.criadoEm; // Ordena do mais recente para o mais antigo
+          return b.criadoEm - a.criadoEm;
         });
-  
+
         setAllClients(sortedClients);
       } catch (error) {
         console.error("Erro ao buscar clientes: ", error);
       }
     };
-  
+
     fetchClients();
   }, []);
 
   useEffect(() => {
-    // Filtrando clientes com base na consulta e ramo selecionado
     const filtered = allClients.filter(client =>
       (client.fantasia ? client.fantasia.toLowerCase().includes(query.toLowerCase()) : false) ||
       (client.ramo ? client.ramo.toLowerCase().includes(query.toLowerCase()) : false) ||
@@ -63,61 +64,73 @@ const Dash = () => {
       setCurrentPage(page);
     }
 
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
   };
 
   return (
-
-    <div className='bg-dash'>
-      <div className="dash-container">
+    <div className="bg-dash">
+      <div className="container-fluid dash-container">
         <div className="container section-result">
-          <SearchInput
-            query={query}
-            setQuery={setQuery}
-            selectedRamo={selectedRamo}
-            setSelectedRamo={setSelectedRamo}
-            ramosOptions={ramosOptions}
-            handleClearSearch={handleClearSearch}
-          />
-          <h2 className="my-4">Clientes Encontrados: {filteredClients.length}</h2>
-          <div className="results-container">
-            {currentClients.map((client, index) => (
-              <SearchResult
-                key={index}
-                title={client.fantasia}
-                subtitle={client.ramo}
-                description={client.descricao || "Descrição não disponível"}
-                mapUrl={client.mapa}
-                fotoEntrada={client.fotoEntrada}
-                endereco={client.endereco}
-                horario={client.horario}
-                numero={client.fone}
-                iconFace={client.iconFace}
-                iconInsta={client.iconInsta}
-                iconWhats={client.iconWhats}
-                iconIfood={client.iconIfood}
-                iconBooking={client.iconBooking}
-                iconSite={client.iconSite}
-                tags={client.tags}
+          <div className="row">
+            <div className="col-12">
+              <SearchInput
+                query={query}
+                setQuery={setQuery}
+                selectedRamo={selectedRamo}
+                setSelectedRamo={setSelectedRamo}
+                ramosOptions={ramosOptions}
+                handleClearSearch={handleClearSearch}
               />
+              <h2 className="my-4">Clientes Encontrados: {filteredClients.length}</h2>
+            </div>
+          </div>
+
+          <div className="row">
+            {currentClients.map((client, index) => (
+              <div key={index} className="col-md-6 col-lg-12 mb-4">
+                <SearchResult
+                  title={client.fantasia}
+                  subtitle={client.ramo}
+                  description={client.descricao || "Descrição não disponível"}
+                  mapUrl={client.mapa}
+                  fotoEntrada={client.fotoEntrada}
+                  endereco={client.endereco}
+                  horario={client.horario}
+                  numero={client.fone}
+                  iconFace={client.iconFace}
+                  iconInsta={client.iconInsta}
+                  iconWhats={client.iconWhats}
+                  iconIfood={client.iconIfood}
+                  iconBooking={client.iconBooking}
+                  iconSite={client.iconSite}
+                  tags={client.tags}
+                />
+              </div>
             ))}
           </div>
-          <div className="pagination">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-            <span>
-              {currentPage} - {totalPages}
-            </span>
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
+
+          <div className="row">
+            <div className="col-12 text-center">
+              <div className="pagination d-flex justify-content-center align-items-center">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  <FontAwesomeIcon icon={faArrowLeft} />
+                </button>
+                <span className="mx-3">
+                  Página {currentPage} de {totalPages}
+                </span>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

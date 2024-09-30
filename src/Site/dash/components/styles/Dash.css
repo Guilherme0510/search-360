@@ -62,40 +62,6 @@
     margin-block: 10px ;
 }
 
-
-/* .header-search {
-    background-image: url(../../../../assets/images/header-search.avif);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 35vh;
-    box-shadow: inset -10px -10px 15px rgba(0, 0, 0, 0.2);
-} */
-
-/* .title-dash {
-    padding-top: 110px;
-    color: #fff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.title-dash h1 {
-    font-weight: 600;
-}
-
-.title-dash p {
-    font-size: 19px;
-    font-weight: 550;
-}
-
-.overlay {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 35vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-} */
-
 .search {
     display: flex;
     justify-content: center;
@@ -354,4 +320,32 @@
     .map-container {
         margin-top: 10px;
     }
+}
+
+@media screen and (max-width: 992px) {
+  h3 {
+    font-size: 3rem; /* Aumenta o tamanho em telas menores */
+  }
+
+  h4 {
+    font-size: 2rem; /* Aumenta o tamanho em telas menores */
+  }
+
+  .result-description {
+    font-size: 1.1rem; /* Aumenta o tamanho em telas menores */
+  }
+}
+
+@media (max-width: 576px) {
+  h3 {
+    font-size: 2rem; /* Aumenta ainda mais em telas muito pequenas */
+  }
+
+  h4 {
+    font-size: 1.75rem; /* Aumenta ainda mais em telas muito pequenas */
+  }
+
+  .result-description {
+    font-size: 1.2rem; /* Aumenta ainda mais em telas muito pequenas */
+  }
 }

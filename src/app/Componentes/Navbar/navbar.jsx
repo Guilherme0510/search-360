@@ -1,9 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getFirestore, collection, getDocs, addDoc, where, query } from 'firebase/firestore';
-import '../Navbar/navbar.css';
-import { AuthContext } from '../../Acesso/Context/auth';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  where,
+  query,
+} from "firebase/firestore";
+import "../Navbar/navbar.css";
+import { AuthContext } from "../../Acesso/Context/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 function Navbar() {
   const [quantidadeClientes, setQuantidadeClientes] = useState(0);
   const [mediaNotas, setMediaNotas] = useState(0);
@@ -24,16 +31,23 @@ function Navbar() {
     try {
       const db = getFirestore();
       const userId = auth.currentUser?.uid;
-      const userAllViwer = ((userId === 'WcOsPxuR4fMICQTnu2m7r0Abdf23') || (userId === 'm8cm3jmEO1QTPcZZyxmiO3lFxDG2') || (userId === 'rrMhvTLAElMAI0l7j0T2y9Ypm842') || (userId === "ghJv0yz2lVgxIjvVJv9wMO6Fpmh2") || (userId === 'yezea9eucLS9O1Pyl1LDzGXNTkE2') || (userId === 'aWFWUvSEOxYmBBsJiTZR7KLD2X23') || (userId === '3RmT5lBN8bhHt6pdHyOq9oBW6yD3') || (userId === 'fzPJ8yp4OJPAvGcBXP0aVD0TYe62'));
-      const userMaster = ((userId === 'WcOsPxuR4fMICQTnu2m7r0Abdf23') || (userId === 'm8cm3jmEO1QTPcZZyxmiO3lFxDG2') || (userId === 'rrMhvTLAElMAI0l7j0T2y9Ypm842') || (userId === 'ghJv0yz2lVgxIjvVJv9wMO6Fpmh2') || (userId === 'fzPJ8yp4OJPAvGcBXP0aVD0TYe62'));
+      const userAllViwer =
+      userId === "o0MWkxE9M1fXOFbyuFzo96NG3rv2" ||
+      userId === "xHHHkLS2VIYkf0XQlsDDk97bMh63" ||
+      userId === "yLrl7j2bBMR7PGrZmPblS1OuCP83"
+
+      const userMaster =
+      userId === "o0MWkxE9M1fXOFbyuFzo96NG3rv2" ||
+      userId === "xHHHkLS2VIYkf0XQlsDDk97bMh63" ||
+      userId === "yLrl7j2bBMR7PGrZmPblS1OuCP83"
       if (userMaster) {
-        setIsAdmUser(true)
+        setIsAdmUser(true);
       }
       let q;
       if (userAllViwer) {
-        q = collection(db, 'clientes');
+        q = collection(db, "clientes");
       } else {
-        q = query(collection(db, 'clientes'), where('userId', '==', userId));
+        q = query(collection(db, "clientes"), where("userId", "==", userId));
       }
       const querySnapshot = await getDocs(q);
       const clientes = querySnapshot.docs.map((doc) => ({
@@ -45,11 +59,14 @@ function Navbar() {
         fone: doc.data().fone,
         valor: doc.data().valor,
         data: doc.data().data,
-        nota: doc.data().nota || '100%', // Definindo '100%' como nota padrão para novos clientes
+        nota: doc.data().nota || "100%", // Definindo '100%' como nota padrão para novos clientes
       }));
       clientes.forEach(async (cliente) => {
         if (!cliente.nota) {
-          await addDoc(collection(db, 'clientes'), { id: cliente.id, nota: '100%' });
+          await addDoc(collection(db, "clientes"), {
+            id: cliente.id,
+            nota: "100%",
+          });
         }
       });
 
@@ -58,12 +75,12 @@ function Navbar() {
       setMediaNotas(media);
       setQuantidadeClientes(clientes.length);
     } catch (error) {
-      console.error('Erro ao obter dados:', error);
+      console.error("Erro ao obter dados:", error);
     }
   };
   const Logout = () => {
     setLogado(false);
-    localStorage.removeItem('logado');
+    localStorage.removeItem("logado");
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -72,7 +89,7 @@ function Navbar() {
         setLogado(true);
         handleVerificarPagos();
       } else {
-        console.log('Nenhum usuário autenticado.');
+        console.log("Nenhum usuário autenticado.");
         setLogado(false);
       }
     });
@@ -86,7 +103,12 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light ">
       <div className="container-fluid">
         <a className="navbar-brand" href="/app/home">
-          <img src="../../../img/LOGO-REALIZE-removebg-preview.png" width="85" height="80" alt="" />
+          <img
+            src="../../../img/logo_ass.png"
+            width="85"
+            height="80"
+            alt=""
+          />
         </a>
 
         <button
@@ -105,51 +127,118 @@ function Navbar() {
           id="navbarNavDropdown"
         >
           <ul className="navbar-nav nav-principal active ">
-            <li className="nav-item ">
-              <Link to={'https://app2.pontomais.com.br/login'} aria-current="page" className="btn  btn-nav btn-nav-ct0 btn-success" type="button" id="button-addon2">
-                <i className="fa-solid fa-check"></i><b> PONTO MAIS</b>
+          <li className="nav-item">
+              <Link
+                to={"/pesquisas"}
+                aria-current="page"
+                className="btn  btn-nav btn-nav-ct0 btn-warning"
+                type="button"
+                id="button-addon2"
+              >
+                <i className="fa-solid fa-search"></i>
+                <b className="m-lg-1">Buscas</b>
               </Link>
             </li>
+            <li className="nav-item ">
+              <Link
+                to={"https://app2.pontomais.com.br/login"}
+                aria-current="page"
+                className="btn  btn-nav btn-nav-ct0 btn-success"
+                type="button"
+                id="button-addon2"
+              >
+                <i className="fa-solid fa-check"></i>
+                <b> PONTO MAIS</b>
+              </Link>
+            </li>
+            
             {isAdmUser && (
               <>
                 <li className="nav-item ">
-                  <Link to={'/app/home/relatoriototal'} aria-current="page" className=" btn   btn-nav btn-nav-ct" type="button" id="button-addon2">
-                  <i className="fa-solid fa-table"></i> <b> RELATÓRIO</b>
+                  <Link
+                    to={"/app/home/relatoriototal"}
+                    aria-current="page"
+                    className=" btn btn-nav btn-nav-ct"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    <i className="fa-solid fa-table"></i> <b> RELATÓRIO</b>
                   </Link>
                 </li>
                 <li className="nav-item ">
-                  <Link to={'/app/monitoriamapsempresas'} aria-current="page" className=" btn btn-nav btn-nav-ct" type="button" id="button-addon2">
-                    <i className="fa-regular fa-clipboard"></i><b> DESENVOLVIMENTO</b>
+                  <Link
+                    to={"/app/monitoriamapsempresas"}
+                    aria-current="page"
+                    className=" btn btn-nav btn-nav-ct"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    <i className="fa-regular fa-clipboard"></i>
+                    <b> DESENVOLVIMENTO</b>
                   </Link>
                 </li>
                 <li className="nav-item ">
-                  <Link to={'/app/marketingmapsempresas'} aria-current="page" className=" btn   btn-nav btn-nav-ct" type="button" id="button-addon2">
-                    <i className="fa-regular fa-folder"></i><b> BACK</b>
+                  <Link
+                    to={"/app/marketingmapsempresas"}
+                    aria-current="page"
+                    className=" btn   btn-nav btn-nav-ct"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    <i className="fa-regular fa-folder"></i>
+                    <b> BACK</b>
                   </Link>
                 </li>
                 <li className="nav-item ">
-                  <Link to={'/app/financeiromapsempresas'} aria-current="page" className="btn  btn-nav btn-nav-ct" type="button" id="button-addon2">
-                    <i className="fa-solid fa-dollar-sign"></i><b> FINANCEIRO</b>
+                  <Link
+                    to={"/app/financeiromapsempresas"}
+                    aria-current="page"
+                    className="btn  btn-nav btn-nav-ct"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    <i className="fa-solid fa-dollar-sign"></i>
+                    <b> FINANCEIRO</b>
                   </Link>
                 </li>
                 <li className="nav-item ">
-                  <Link to={'/app/gestaomapsempresas'} aria-current="page" className=" btn   btn-nav btn-nav-ct" type="button" id="button-addon2">
-                    <i className="fa-solid fa-lock"></i><b> GESTÃO</b>
+                  <Link
+                    to={"/app/gestaomapsempresas"}
+                    aria-current="page"
+                    className=" btn   btn-nav btn-nav-ct"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    <i className="fa-solid fa-lock"></i>
+                    <b> GESTÃO</b>
                   </Link>
                 </li>
                 <li className="nav-item ">
-                  <Link to={'/app/cobrancamapsempresas'} aria-current="page" className="btn  btn-nav btn-nav-ct" type="button" id="button-addon2">
-                    <i className="fa-solid fa-comments-dollar"></i><b> COBRANÇA </b>
+                  <Link
+                    to={"/app/cobrancamapsempresas"}
+                    aria-current="page"
+                    className="btn  btn-nav btn-nav-ct"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    <i className="fa-solid fa-comments-dollar"></i>
+                    <b> COBRANÇA </b>
                   </Link>
                 </li>
               </>
             )}
             <li className="nav-item">
-              <Link to={'/app'}
+              <Link
+                to={"/app"}
                 onClick={Logout}
-                aria-current="page" className=" btn btn-danger btn-nav" type="button" id="button-addon2"
+                aria-current="page"
+                className=" btn btn-danger btn-nav"
+                type="button"
+                id="button-addon2"
               >
-                <b><i className="fa-solid fa-right-from-bracket"></i> SAIR </b>
+                <b>
+                  <i className="fa-solid fa-right-from-bracket"></i> SAIR{" "}
+                </b>
               </Link>
             </li>
           </ul>

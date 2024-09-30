@@ -177,15 +177,6 @@
     color: #000000;
 }
 
-.exibicao{  
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-shadow:  -5px 5px 15px rgba(0, 0, 0, 0.4);
-    color: #374ddc;
-    display: flex;
-    justify-content: end;
-    padding-left: 370px;
-}
-
 .qtdClientesAss{
     margin-right: 50px;
 }

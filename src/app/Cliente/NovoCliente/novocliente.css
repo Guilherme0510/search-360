@@ -2,3 +2,23 @@
     padding: 20px;
     justify-content: center;
 }
+
+.input-img{
+   margin-top: 10px;
+   display: flex;
+   justify-content: center;
+}
+
+.input-img label{
+    border-radius: 15px;
+}
+
+.add-novo-cliente{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ver-infos{
+    color: #fff;
+}

@@ -70,11 +70,11 @@
 .box-serv:hover {
 	opacity: .9;
 	scale: 1.05;
-	margin-bottom: -15px;
-	margin-left: -10px;
+
 }
 
 .btn-serv {
+	
 	color: #fff;
 	transition: all .3s ease-in-out;
 }

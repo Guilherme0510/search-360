@@ -77,6 +77,8 @@ function App() {
           <Route element={<FichaAlterar />} path='/app/fichaalterar/:id' exact />
           <Route element={<Comprovantes />} path='/app/comprovantes/:id' exact />
 
+
+
         </Route>
       </Routes>
     </BrowserRouter>
