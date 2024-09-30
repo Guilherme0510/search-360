@@ -88,7 +88,7 @@ const SearchResult = ({
           )}
         </p>
 
-        <p>
+        <p className='descricao'>
           {isExpanded ? description : truncateText(description, 20)}
           <span
             onClick={toggleDescription}

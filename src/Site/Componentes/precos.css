@@ -6,7 +6,6 @@
 	height: auto;
 	background: linear-gradient(120deg, #374DDC, #193b70);
 	transition: all .4s ease-in-out;
-	margin-top: -20px;
 }
 
 .sobre:hover {

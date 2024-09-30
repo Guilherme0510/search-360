@@ -20,7 +20,7 @@ function Footer() {
                 <a href="#contato" className="nav-link px-2 text-body-secondary">Contato</a>
               </li>
             </ul>
-            <p className="text-center">&copy; 2021 G Realize - 28.062.365/0001-60</p>
+            <p className="text-center">&copy; 2021 Search 360 - 48.497.162/0001-03</p>
           </footer>
         </div>
       );

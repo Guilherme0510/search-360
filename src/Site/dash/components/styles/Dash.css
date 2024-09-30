@@ -45,6 +45,7 @@
     height: 220px;
     object-fit: cover;
     border-radius: 15px 0 0 15px;
+    
   }
 
 .text-content h3{
@@ -101,6 +102,10 @@
 .result-description {
     text-align: justify;
     margin-right: 25px !important;
+}
+
+.descricao{
+  padding-right: 50px;
 }
 
 .icons {
