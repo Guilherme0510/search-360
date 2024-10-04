@@ -1,21 +1,25 @@
 // Dash.js
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; // Importe useLocation
-import { collection, getDocs } from 'firebase/firestore'; // Importe a coleção e método de leitura
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; // Importe useLocation
+import { collection, getDocs } from "firebase/firestore"; // Importe a coleção e método de leitura
 import { getFirestore } from "firebase/firestore";
-import SearchInput from '../dash/components/SearchInput';
-import SearchResult from '../dash/components/SearchResult';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import './components/styles/Dash.css';
+import SearchInput from "../dash/components/SearchInput";
+import SearchResult from "../dash/components/SearchResult";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import "./components/styles/Dash.css";
 
 const Dash = () => {
   const db = getFirestore();
   const location = useLocation(); // Use o hook useLocation
 
-  const [query, setQuery] = useState(new URLSearchParams(location.search).get('query') || '');
-  const [locationQuery, setLocationQuery] = useState(new URLSearchParams(location.search).get('location') || '');
-  const [selectedRamo, setSelectedRamo] = useState('');
+  const [query, setQuery] = useState(
+    new URLSearchParams(location.search).get("query") || ""
+  );
+  const [locationQuery, setLocationQuery] = useState(
+    new URLSearchParams(location.search).get("location") || ""
+  );
+  const [selectedRamo, setSelectedRamo] = useState("");
   const [ramosOptions, setRamosOptions] = useState([]);
   const [filteredClients, setFilteredClients] = useState([]);
   const [currentClients, setCurrentClients] = useState([]);
@@ -26,8 +30,8 @@ const Dash = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'clientes'));
-        const clientsData = querySnapshot.docs.map(doc => doc.data());
+        const querySnapshot = await getDocs(collection(db, "clientes"));
+        const clientsData = querySnapshot.docs.map((doc) => doc.data());
 
         const sortedClients = clientsData.sort((a, b) => {
           return b.criadoEm - a.criadoEm;
@@ -43,11 +47,18 @@ const Dash = () => {
   }, []);
 
   useEffect(() => {
-    const filtered = allClients.filter(client =>
-      (client.fantasia ? client.fantasia.toLowerCase().includes(query.toLowerCase()) : false) ||
-      (client.ramo ? client.ramo.toLowerCase().includes(query.toLowerCase()) : false) ||
-      (client.tags ? client.tags.toLowerCase().includes(query.toLowerCase()) : false) &&
-      (selectedRamo ? client.ramo === selectedRamo : true)
+    const filtered = allClients.filter(
+      (client) =>
+        (client.fantasia
+          ? client.fantasia.toLowerCase().includes(query.toLowerCase())
+          : false) ||
+        (client.ramo
+          ? client.ramo.toLowerCase().includes(query.toLowerCase())
+          : false) ||
+        ((client.tags
+          ? client.tags.toLowerCase().includes(query.toLowerCase())
+          : false) &&
+          (selectedRamo ? client.ramo === selectedRamo : true))
     );
     setFilteredClients(filtered);
     setTotalPages(Math.ceil(filtered.length / 10));
@@ -55,8 +66,8 @@ const Dash = () => {
   }, [query, selectedRamo, currentPage, allClients]);
 
   const handleClearSearch = () => {
-    setQuery('');
-    setSelectedRamo('');
+    setQuery("");
+    setSelectedRamo("");
   };
 
   const handlePageChange = (page) => {
@@ -67,8 +78,16 @@ const Dash = () => {
     window.scrollTo(0, 0);
   };
 
+  const voltarInicio = () => {
+    window.history.back()
+  }
+
   return (
     <div className="bg-dash">
+      <button onClick={voltarInicio} className="btn btn-danger position-absolute m-4">
+        <FontAwesomeIcon icon={faArrowLeft} />
+      </button>
+
       <div className="container-fluid dash-container">
         <div className="container section-result">
           <div className="row">
@@ -81,7 +100,9 @@ const Dash = () => {
                 ramosOptions={ramosOptions}
                 handleClearSearch={handleClearSearch}
               />
-              <h2 className="my-4">Clientes Encontrados: {filteredClients.length}</h2>
+              <h2 className="my-4">
+                Clientes Encontrados: {filteredClients.length}
+              </h2>
             </div>
           </div>
 

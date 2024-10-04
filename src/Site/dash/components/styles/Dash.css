@@ -51,6 +51,7 @@
 .text-content h3{
     letter-spacing: 2px;
     margin-bottom: 22px ;
+    text-transform: capitalize;
 }
 
 .text-content h4{
