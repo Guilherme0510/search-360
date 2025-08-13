@@ -1,0 +1,36 @@
+
+.sobre {
+	position: relative;
+	border: 5px double #6F7BBF;
+	border-radius: 25px;
+	height: auto;
+	background: linear-gradient(120deg, #374DDC, #193b70);
+	transition: all .4s ease-in-out;
+}
+
+.sobre:hover {
+	scale: 1.01;
+}
+
+.titulo-caixa {
+	margin-top: 50px;
+}
+
+.dados-sobre {
+	display: flex;
+	align-items: center;
+}
+
+.img-sobre img{
+	position: relative;
+	width: auto;
+}
+
+.img-sobre1 {
+	margin-top: 50px;
+	border-radius: 25px;
+}
+
+.text-sobre {
+	flex: 1;
+}

@@ -1,0 +1,47 @@
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: white;
+    padding: 20px;
+  }
+  
+  .qr-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img-qrcode {
+    width: 100%;
+    max-width: 500px; 
+    height: auto;
+  }
+  
+  .qr-code {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .download-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .download-btn:hover {
+    background: #0056b3;
+  }
+  

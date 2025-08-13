@@ -1,0 +1,66 @@
+.icone-acao1 {
+  margin-right: 15px;
+  color: #374ddc;
+  font-size: x-large;
+}
+.icone-acao {
+  padding: 8px;
+}
+.divDate input{
+  color: #374ddc;
+}
+.red {
+  color: rgb(151, 10, 10);
+}
+.col-acao {
+  width: 80px;
+  color: #ffff;
+}
+.icon-u {
+  font-size: 20px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.table th {
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.divDate {  
+  height: 35px;
+  margin: 20px 5px 40px 15px;
+}
+.divAss {
+  justify-content: flex-start;
+  display: flex;
+}
+.txtAss h1 {
+  padding: 15px 180px 0 50px;
+  color: #ffff;
+  font-size: x-large;
+}
+.table-primari {
+  background-color: #374ddc;
+}
+.divAgenciados,
+.divAssinados {
+  border-radius: 50px;
+  margin-right: 50px;
+  align-items: center;
+  text-align: center;
+  height: 35px;
+}
+.txtAss {
+  align-items: center;
+  text-align: center;
+  padding: 13px 13px 18px;
+}
+
+.divDate P{
+  color: #ffff;
+  font-size: large;
+}

@@ -1,0 +1,23 @@
+/* Estilos para a Navbar */
+.nav {
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar-light {
+	background-color: #193b70;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: white;
+}
+
+
+.navbar-dark .navbar-nav .nav-link {
+	color: black;
+}
+
+.logo-home img {
+	margin-top: 10px;
+	width: 500px;
+	object-fit: contain;
+}

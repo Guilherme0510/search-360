@@ -1,0 +1,113 @@
+
+.carousel {
+	position: relative;
+	max-width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.carousel__viewport {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	transition: transform 0.5s ease;
+	/* Transição suave entre slides */
+}
+
+.carousel__viewport.slide-next {
+	animation: tonext 1s forwards;
+}
+
+.carousel__viewport.slide-prev {
+	animation: tostart 1s forwards;
+}
+
+.carousel__slide {
+	flex: 0 0 100%;
+	display: none;
+	/* Inicialmente oculto */
+	opacity: 0;
+}
+
+.carousel__slide.active {
+	display: flex;
+	/* Exibido quando ativo */
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	opacity: 1;
+	/* Garante que o slide seja visível */
+	transition: opacity 0.5s ease;
+	/* Transição suave de opacidade */
+	animation: snap 1s forwards;
+}
+
+.carousel__navigation {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+	padding: 10px 20px;
+	background-color: rgba(255, 255, 255, 1);
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	border: 2px solid #000;
+	border-radius: 15px;
+	font-size: 1.2rem;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1;
+	/* Garante que os botões de navegação estejam acima dos slides */
+	transition: background-color 0.3s ease;
+	/* Transição suave para a cor de fundo */
+}
+
+.carousel__prev {
+	top: 60%;
+	left: 25%;
+}
+
+.carousel__next {
+	top: 60%;
+	right: 25%;
+}
+
+.carousel__viewport.slide-next {
+	transform: translateX(-100%);
+}
+
+.carousel__viewport.slide-prev {
+	transform: translateX(100%);
+}
+
+.carousel__viewport.slide-active {
+	transform: translateX(0);
+}
+
+.feedback {
+	border-radius: 25px;
+	color: #fff;
+	padding: 0 50px;
+	width: 30%;
+	transition: all .3s ease-in-out;
+	box-shadow: 0 0 55px rgba(0, 0, 0, 0.5);
+	background: linear-gradient(180deg, #5466db, #5466db, #5466db, #374DDC 80%);
+}
+
+.user img {
+	width: 100px;
+	position: absolute;
+	left: 47%;
+}
+
+.user h4{
+	position: absolute;
+	left: 47%;
+	bottom: -13px;
+	color: #000;
+}

@@ -1,0 +1,35 @@
+.mapa-home {
+	position: absolute;
+	filter: brightness(.6);
+	height: 70vh;
+}
+
+.itens-banner{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 20px;
+	height: 70vh;
+}
+
+.itens-banner h1{
+	color: #fff;
+	font-weight: 600;
+	z-index: 2;
+}
+
+.itens-banner input{
+	width: 500px;
+}
+
+.input-header{
+	display: flex;
+	z-index: 2;
+	
+}
+@media screen and (max-width: 992px){
+	.background-video{
+		height: 40vh;
+	}
+}
