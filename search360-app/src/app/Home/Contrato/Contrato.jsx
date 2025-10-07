@@ -103,13 +103,12 @@ const Contrato = () => {
   };
 
   function formatarDate(data) {
-  const novaData = new Date(`${data}T00:00:00-03:00`); // Força fuso horário de Brasília
-  const dia = String(novaData.getDate()).padStart(2, "0");
-  const mes = String(novaData.getMonth() + 1).padStart(2, "0");
-  const ano = novaData.getFullYear();
-  return `${dia}/${mes}/${ano}`;
-}
-
+    const novaData = new Date(`${data}T00:00:00-03:00`); // Força fuso horário de Brasília
+    const dia = String(novaData.getDate()).padStart(2, "0");
+    const mes = String(novaData.getMonth() + 1).padStart(2, "0");
+    const ano = novaData.getFullYear();
+    return `${dia}/${mes}/${ano}`;
+  }
 
   const limparNumeros = (str) => str?.replace(/\D/g, "");
   return (
@@ -117,147 +116,164 @@ const Contrato = () => {
       <div className="box-contrato">
         <div className="contrato" id="contrato">
           <img src="/img/contrato_1.png" alt="" className="contrato-img-1" />
-          <div className="itens-contrato">
-            <div className="header-contrato">
-              <p className="fw-semibold">
-                DATA: <span className="fw-normal">{formatarDate(data)}</span>
-                <br />
+          <div className="d-flex justify-content-center">
+            <div className="itens-contrato">
+              <div className="header-contrato">
+                <p className="fw-semibold">
+                  DATA: <span className="fw-normal">{formatarDate(data)}</span>
+                  <br />
+                  <p>
+                    VIGÊNCIA:{" "}
+                    <span className="fw-normal">2025 / 2026 / 2027</span>
+                  </p>
+                </p>
+                <p className="fw-semibold">
+                  OPERADOR: <span className="fw-normal">{operador}</span>
+                </p>
+                <p className="fw-semibold">
+                  CONTRATO Nº :{" "}
+                  <span className="fw-normal">
+                    {limparNumeros(cnpj || cpf)?.slice(0, 5) ||
+                      "Valor Inválido"}
+                  </span>
+                </p>
+              </div>
+              <CaixaAmarela text={"DADOS DA EMPRESA"} />
+              <div className="info-empresa row">
+                <div className="col-md-6">
+                  <p className="fw-semibold">
+                    RAZÃO SOCIAL:{" "}
+                    <span className="fw-normal">
+                      {razao || "Não informado"}
+                    </span>
+                  </p>
+                  <p className="fw-semibold">
+                    NOME FANTASIA:{" "}
+                    <span className="fw-normal">
+                      {fantasia || "Não informado"}
+                    </span>
+                  </p>
+                  <p className="fw-semibold">
+                    ENDEREÇO COMERCIAL:{" "}
+                    <span className="fw-normal">
+                      {endereco || "Não informado"}
+                    </span>
+                  </p>
+                  <p className="fw-semibold">
+                    BAIRRO:{" "}
+                    <span className="fw-normal">
+                      {bairro || "Não informado"}
+                    </span>
+                  </p>
+                  <p className="fw-semibold">
+                    CIDADE:{" "}
+                    <span className="fw-normal">
+                      {cidade || "Não informado"}
+                    </span>
+                  </p>
+                  <p className="fw-semibold">
+                    ESTADO:{" "}
+                    <span className="fw-normal">
+                      {estado || "Não informado"}
+                    </span>
+                  </p>
+                </div>
+                <div className="col-md-6">
+                  <p className="fw-semibold">
+                    CNPJ:{" "}
+                    <span className="fw-normal">{cnpj || "Não informado"}</span>
+                  </p>
+                  <p className="fw-semibold">
+                    TELEFONE:{" "}
+                    <span className="fw-normal">{fone || "Não informado"}</span>
+                  </p>
+                  <p className="fw-semibold">
+                    WHATSAPP:{" "}
+                    <span className="fw-normal">
+                      {whatsapp || "Não informado"}
+                    </span>
+                  </p>
+                  <p className="fw-semibold">
+                    CELULAR:{" "}
+                    <span className="fw-normal">
+                      {whatsapp || "Não informado"}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <CaixaAmarela text={"VISUALIZE SUA PÁGINA NO GOOGLE"} />
+              <div>
+                <p className="fw-semibold">
+                  LINK DA PÁGINA:{" "}
+                  <a
+                    href={linkPagina}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="fw-normal">
+                      {linkPagina.length > 30
+                        ? `${linkPagina.slice(0, 30)}...`
+                        : linkPagina}
+                    </span>
+                  </a>
+                </p>
+                <p className="fw-semibold">
+                  EMAIL: <span className="fw-normal">{email}</span>
+                </p>
                 <p>
-                  VIGÊNCIA:{" "}
-                  <span className="fw-normal">2025 / 2026 / 2027</span>
-                </p>
-              </p>
-              <p className="fw-semibold">
-                OPERADOR: <span className="fw-normal">{operador}</span>
-              </p>
-              <p className="fw-semibold">
-                CONTRATO Nº :{" "}
-                <span className="fw-normal">
-                  {limparNumeros(cnpj || cpf)?.slice(0, 5) || "Valor Inválido"}
-                </span>
-              </p>
-            </div>
-            <CaixaAmarela text={"DADOS DA EMPRESA"} />
-            <div className="info-empresa row">
-              <div className="col-md-6">
-                <p className="fw-semibold">
-                  RAZÃO SOCIAL:{" "}
-                  <span className="fw-normal">{razao || "Não informado"}</span>
-                </p>
-                <p className="fw-semibold">
-                  NOME FANTASIA:{" "}
-                  <span className="fw-normal">
-                    {fantasia || "Não informado"}
-                  </span>
-                </p>
-                <p className="fw-semibold">
-                  ENDEREÇO COMERCIAL:{" "}
-                  <span className="fw-normal">
-                    {endereco || "Não informado"}
-                  </span>
-                </p>
-                <p className="fw-semibold">
-                  BAIRRO:{" "}
-                  <span className="fw-normal">{bairro || "Não informado"}</span>
-                </p>
-                <p className="fw-semibold">
-                  CIDADE:{" "}
-                  <span className="fw-normal">{cidade || "Não informado"}</span>
-                </p>
-                <p className="fw-semibold">
-                  ESTADO:{" "}
-                  <span className="fw-normal">{estado || "Não informado"}</span>
+                  <span>TIPO DE ATUALIZAÇÃO:</span> CRIAR QR AVALIATIVO INCLUSÃO
+                  DE FOTO SITE DE BUSCAS CARTÃO DIGITAL. <span>CONDIÇÕES:</span>
+                  NºPARC. POR VIGENCIA.(10) 399.90 TREZENTOS E NOVENTA E NOVE
+                  REAIS E NOVENTA CENTAVOS (BOLETO)(MENSAL).
+                  <span> OBSERVAÇÃO:</span> FAZER A OTIMIZAÇÃO DA PÁGINA ,
+                  CLIENTE COM BAIXA VISIBILIDADE, INCLUIR FOTOS E VIDEOS,
+                  ATUALIZAR MAPEAMENTO NO GPS, INCLUIR BOTÃO DIRECIONADOR
+                  WHATSAPP
                 </p>
               </div>
-              <div className="col-md-6">
-                <p className="fw-semibold">
-                  CNPJ:{" "}
-                  <span className="fw-normal">{cnpj || "Não informado"}</span>
-                </p>
-                <p className="fw-semibold">
-                  TELEFONE:{" "}
-                  <span className="fw-normal">{fone || "Não informado"}</span>
-                </p>
-                <p className="fw-semibold">
-                  WHATSAPP:{" "}
-                  <span className="fw-normal">
-                    {whatsapp || "Não informado"}
-                  </span>
-                </p>
-                <p className="fw-semibold">
-                  CELULAR:{" "}
-                  <span className="fw-normal">
-                    {whatsapp || "Não informado"}
-                  </span>
-                </p>
-              </div>
-            </div>
-            <CaixaAmarela text={"VISUALIZE SUA PÁGINA NO GOOGLE"} />
-            <div>
-              <p className="fw-semibold">
-                LINK DA PÁGINA:{" "}
-               <a href={linkPagina} target="_blank" rel="noopener noreferrer">
-  <span className="fw-normal">
-    {linkPagina.length > 30 ? `${linkPagina.slice(0, 30)}...` : linkPagina}
-  </span>
-</a>
+              <CaixaAmarela text={"HORÁRIO DE FUNCIONAMENTO"} />
+              <div className="d-flex align-items-center gap-4">
+                <i className="fa-solid fa-clock fs-2 text-danger mt-2"></i>
 
-              </p>
-              <p className="fw-semibold">
-                EMAIL: <span className="fw-normal">{email}</span>
-              </p>
-              <p>
-                <span>TIPO DE ATUALIZAÇÃO:</span> CRIAR QR AVALIATIVO INCLUSÃO
-                DE FOTO SITE DE BUSCAS CARTÃO DIGITAL. <span>CONDIÇÕES:</span>
-                NºPARC. POR VIGENCIA.(10) 399.90 TREZENTOS E NOVENTA E NOVE REAIS
-                E NOVENTA CENTAVOS (BOLETO)(MENSAL).
-                <span> OBSERVAÇÃO:</span> FAZER A OTIMIZAÇÃO DA PÁGINA , CLIENTE
-                COM BAIXA VISIBILIDADE, INCLUIR FOTOS E VIDEOS, ATUALIZAR
-                MAPEAMENTO NO GPS, INCLUIR BOTÃO DIRECIONADOR WHATSAPP
-              </p>
-            </div>
-            <CaixaAmarela text={"HORÁRIO DE FUNCIONAMENTO"} />
-            <div className="d-flex align-items-center gap-4">
-              <i className="fa-solid fa-clock fs-2 text-danger mt-2"></i>
+                <div className="d-flex flex-column gap-2 w-50">
+                  <span className="fw-semibold">
+                    Domingo: {horarioDomingo || "Não informado"}
+                  </span>
+                  <span className="fw-semibold">
+                    Segunda: {horarioSegunda || "Não informado"}
+                  </span>
+                  <span className="fw-semibold">
+                    Terça: {horarioTerca || "Não informado"}
+                  </span>
+                  <span className="fw-semibold">
+                    Quarta: {horarioQuarta || "Não informado"}
+                  </span>
+                </div>
 
-              <div className="d-flex flex-column gap-2 w-50">
-                <span className="fw-semibold">
-                  Domingo: {horarioDomingo || "Não informado"}
-                </span>
-                <span className="fw-semibold">
-                  Segunda: {horarioSegunda || "Não informado"}
-                </span>
-                <span className="fw-semibold">
-                  Terça: {horarioTerca || "Não informado"}
-                </span>
-                <span className="fw-semibold">
-                  Quarta: {horarioQuarta || "Não informado"}
-                </span>
+                <div className="d-flex flex-column gap-2 w-50">
+                  <span className="fw-semibold">
+                    Quinta: {horarioQuinta || "Não informado"}
+                  </span>
+                  <span className="fw-semibold">
+                    Sexta: {horarioSexta || "Não informado"}
+                  </span>
+                  <span className="fw-semibold">
+                    Sábado: {horarioSabado || "Não informado"}
+                  </span>
+                  <span className="fw-semibold">
+                    Feriado: {horarioFeriado || "Não informado"}
+                  </span>
+                </div>
               </div>
-
-              <div className="d-flex flex-column gap-2 w-50">
-                <span className="fw-semibold">
-                  Quinta: {horarioQuinta || "Não informado"}
-                </span>
-                <span className="fw-semibold">
-                  Sexta: {horarioSexta || "Não informado"}
-                </span>
-                <span className="fw-semibold">
-                  Sábado: {horarioSabado || "Não informado"}
-                </span>
-                <span className="fw-semibold">
-                  Feriado: {horarioFeriado || "Não informado"}
-                </span>
+              <div className="footer-contrato">
+                <p className="footer-contrato-nome">{nome}</p>
+                <p className="footer-contrato-cargo">{cargo}</p>
               </div>
-            </div>
-            <div className="footer-contrato">
-              <p className="footer-contrato-nome">{nome}</p>
-              <p className="footer-contrato-cargo">{cargo}</p>
             </div>
           </div>
           <div className="page-break" />
           <div className="termos-contrato">
-            <img src="/img/contrato_2.png" alt="" className="contrato-img-1" />
+            <img src="/img/contrato_2.jpg" alt="" className="contrato-img-1" />
             <div className="footer-contrato">
               <p className="footer-contrato-nome">{nome}</p>
               <p className="footer-contrato-cargo">{cargo}</p>
