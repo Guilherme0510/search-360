@@ -160,6 +160,12 @@ const Contrato = () => {
                     </span>
                   </p>
                   <p className="fw-semibold">
+                    CEP:{" "}
+                    <span className="fw-normal">
+                      {cep || "Não informado"}
+                    </span>
+                  </p>
+                  <p className="fw-semibold">
                     BAIRRO:{" "}
                     <span className="fw-normal">
                       {bairro || "Não informado"}
@@ -171,14 +177,15 @@ const Contrato = () => {
                       {cidade || "Não informado"}
                     </span>
                   </p>
+                  
+                </div>
+                <div className="col-md-6">
                   <p className="fw-semibold">
                     ESTADO:{" "}
                     <span className="fw-normal">
                       {estado || "Não informado"}
                     </span>
                   </p>
-                </div>
-                <div className="col-md-6">
                   <p className="fw-semibold">
                     CNPJ:{" "}
                     <span className="fw-normal">{cnpj || "Não informado"}</span>
@@ -187,6 +194,7 @@ const Contrato = () => {
                     TELEFONE:{" "}
                     <span className="fw-normal">{fone || "Não informado"}</span>
                   </p>
+                  
                   <p className="fw-semibold">
                     WHATSAPP:{" "}
                     <span className="fw-normal">

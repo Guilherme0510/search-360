@@ -131,6 +131,7 @@ function EditarCliente() {
           data,
           operador,
           venc,
+          cep,
           link,
           cargo,
           estado,
